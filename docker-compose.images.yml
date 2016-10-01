@@ -1,0 +1,26 @@
+version: "2"
+
+services:
+  rng:
+    image: hopla/dockercoins_rng:1.0
+    ports:
+    - "8001:80"
+
+  hasher:
+    image: hopla/dockercoins_hasher:1.0
+    ports:
+    - "8002:80"
+
+  webui:
+    image: hopla/dockercoins_webui:1.0
+    ports:
+    - "8000:80"
+    volumes:
+    - "./webui/files/:/files/"
+
+  redis:
+    image: redis
+
+  worker:
+    image: hopla/dockercoins_worker:1.0
+

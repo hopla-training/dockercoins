@@ -1,0 +1,53 @@
+{
+  "Services": {
+    "hasher": {
+      "Image": "hopla/dockercoins_hasher@sha256:237e5f135ca615e2f9378b510a85ef95e8e924807f609bc50593f49be3687484", 
+      "Networks": [
+        "default"
+      ], 
+      "Ports": [
+        {
+          "Port": 80, 
+          "Protocol": "tcp"
+        }
+      ]
+    }, 
+    "redis": {
+      "Image": "redis@sha256:38e873a0db859d0aa8ab6bae7bcb03c1bb65d2ad120346a09613084b49185912", 
+      "Networks": [
+        "default"
+      ]
+    }, 
+    "rng": {
+      "Image": "hopla/dockercoins_rng@sha256:4f6972562b796abf32a2e580cb61ac7a7a38833d0a8a2b7dd377337455e7dec1", 
+      "Networks": [
+        "default"
+      ], 
+      "Ports": [
+        {
+          "Port": 80, 
+          "Protocol": "tcp"
+        }
+      ]
+    }, 
+    "webui": {
+      "Image": "hopla/dockercoins_webui@sha256:cd1f1c4285ef4bda1263e4bce0ef4e0601f7efe785e6274d94a03f8bd26a4fb5", 
+      "Networks": [
+        "default"
+      ], 
+      "Ports": [
+        {
+          "Port": 80, 
+          "Protocol": "tcp"
+        }
+      ]
+    }, 
+    "worker": {
+      "Image": "hopla/dockercoins_worker@sha256:937d4133e1a73df51e40f634f2c5c57748ed79a37fd23570252feb8b2b6be482", 
+      "Networks": [
+        "default"
+      ]
+    }
+  }, 
+  "Version": "0.1"
+}
