@@ -1,0 +1,28 @@
+version: "3"
+
+services:
+  rng:
+    build: rng
+    image: hopla/dockercoins_rng:${TAG}
+    deploy:
+      mode: global
+
+  hasher:
+    build: hasher
+    image: hopla/dockercoins_hasher:${TAG}
+
+  webui:
+    build: dockercoins/webui
+    image: ${REGISTRY_SLASH-127.0.0.1:5000/}webui${COLON_TAG-:latest}
+    ports:
+    - "8000:80"
+
+  redis:
+    image: redis
+
+  worker:
+    build: dockercoins/worker
+    image: ${REGISTRY_SLASH-127.0.0.1:5000/}worker${COLON_TAG-:latest}
+    deploy:
+      replicas: 10
+
