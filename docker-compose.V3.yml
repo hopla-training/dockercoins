@@ -12,8 +12,8 @@ services:
     image: hopla/dockercoins_hasher:${TAG}
 
   webui:
-    build: dockercoins/webui
-    image: ${REGISTRY_SLASH-127.0.0.1:5000/}webui${COLON_TAG-:latest}
+    build: webui
+    image: hopla/dockercoins_webui:${TAG}
     ports:
     - "8000:80"
 
@@ -21,8 +21,8 @@ services:
     image: redis
 
   worker:
-    build: dockercoins/worker
-    image: ${REGISTRY_SLASH-127.0.0.1:5000/}worker${COLON_TAG-:latest}
+    build: worker
+    image: hopla/dockercoins_worker:${TAG}
     deploy:
       replicas: 10
 
